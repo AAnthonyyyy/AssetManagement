@@ -45,11 +45,17 @@ class ScanFragment : Fragment() {
                               val result = it.data?.getStringExtra(SCAN_RESULT)
                               val tag = result?.substring(7,11)
                               Log.e(MY_TAG, "--------------: $tag", )
-                              if (tag=="zjgk"){
+                              // if (tag=="zjgk"){
+                              //       val num = result?.substring(LENGTH)
+                              //       Log.e(MY_TAG, "扫描二维码出来的数据: $result   截取的数据: $num")
+                              //       //拿到扫描的数据后开始请求网络
+                              //       uploadData(num.toString())
+                              if(result.contains("zjgk")){
                                     val num = result?.substring(LENGTH)
                                     Log.e(MY_TAG, "扫描二维码出来的数据: $result   截取的数据: $num")
                                     //拿到扫描的数据后开始请求网络
                                     uploadData(num.toString())
+                              }
                               }else{
                                     Toast.makeText(activity, "请扫描正确的二维码", Toast.LENGTH_SHORT).show()
                               }
